@@ -6,7 +6,7 @@ def main():
     n = int(sys.stdin.readline().strip())
     total_count = 2**n * math.factorial(n)
     print(total_count)
-    for i in itertools.permutations([str(i) for i in range(1, n + 1)], n):
+    for i in itertools.permutations([str(_) for _ in range(1, n + 1)], n):
         for j in itertools.product('-+', repeat=n):
             print(' '.join(str(int(''.join(k))) for k in zip(j, i)))
     
