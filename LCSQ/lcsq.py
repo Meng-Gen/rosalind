@@ -23,7 +23,7 @@ def longest_common_subsequence(s, t):
 
 def longest_common_subsequence_table(s, t):
     m, n = len(s), len(t)
-    c = [[0 for x in range(n+1)] for y in range(m+1)] 
+    c = [[0 for _ in range(n+1)] for _ in range(m+1)] 
     for i in range(m):
         for j in range(n):
             if s[i] == t[j]:
