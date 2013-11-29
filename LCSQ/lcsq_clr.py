@@ -18,8 +18,6 @@ def get_fasta_records(lines):
     return dna_strings
 
 def longest_common_subsequence(s, t):
-    # Avoid RuntimeError: maximum recursion depth exceeded in comparison
-    sys.setrecursionlimit(1500)
     c, b = longest_common_subsequence_table(s, t)
     return longest_common_subsequence_printable(b, s, len(s), len(t))
 
@@ -41,15 +39,19 @@ def longest_common_subsequence_table(s, t):
     return c, b
 
 def longest_common_subsequence_printable(b, s, i, j):
-    if i == 0 or j == 0:
-        return ''
-    direction = b[i-1][j-1]
-    if direction == 'Diagonal':
-        return longest_common_subsequence_printable(b, s, i-1, j-1) + s[i-1]
-    elif direction == 'Up':
-        return longest_common_subsequence_printable(b, s, i-1, j)
-    else:
-        return longest_common_subsequence_printable(b, s, i, j-1)
+    reversed_lcs = ''
+    while True:
+        if i == 0 or j == 0:
+            break
+        direction = b[i-1][j-1]
+        if direction == 'Diagonal':
+            lcs += s[i-1]
+            i, j = i-1, j-1
+        elif direction == 'Up':
+            i, j = i-1, j
+        else:
+            i, j = i, j-1
+    return reversed_lcs[::-1]
             
 def main():
     fasta_records = get_fasta_records(sys.stdin.readlines())
