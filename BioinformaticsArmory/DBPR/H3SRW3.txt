@@ -1,0 +1,75 @@
+ID   H3SRW3_PSEAE            Unreviewed;       352 AA.
+AC   H3SRW3;
+DT   18-APR-2012, integrated into UniProtKB/TrEMBL.
+DT   18-APR-2012, sequence version 1.
+DT   16-OCT-2013, entry version 12.
+DE   RecName: Full=Holliday junction ATP-dependent DNA helicase RuvB;
+DE            EC=3.6.4.12;
+GN   Name=ruvB; ORFNames=O1O_02890;
+OS   Pseudomonas aeruginosa MPAO1/P1.
+OC   Bacteria; Proteobacteria; Gammaproteobacteria; Pseudomonadales;
+OC   Pseudomonadaceae; Pseudomonas.
+OX   NCBI_TaxID=1131757;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE.
+RC   STRAIN=MPAO1/P1;
+RX   PubMed=22952955; DOI=10.1371/journal.pone.0044326;
+RA   Olivas A.D., Shogan B.D., Valuckaite V., Zaborin A., Belogortseva N.,
+RA   Musch M., Meyer F., L Trimble W., An G., Gilbert J., Zaborina O.,
+RA   Alverdy J.C.;
+RT   "Intestinal Tissues Induce an SNP Mutation in Pseudomonas aeruginosa
+RT   That Enhances Its Virulence: Possible Role in Anastomotic Leak.";
+RL   PLoS ONE 7:E44326-E44326(2012).
+CC   -!- FUNCTION: The RuvA-RuvB complex in the presence of ATP renatures
+CC       cruciform structure in supercoiled DNA with palindromic sequence,
+CC       indicating that it may promote strand exchange reactions in
+CC       homologous recombination. RuvAB is a helicase that mediates the
+CC       Holliday junction migration by localized denaturation and
+CC       reannealing (By similarity).
+CC   -!- CATALYTIC ACTIVITY: ATP + H(2)O = ADP + phosphate.
+CC   -!- SUBUNIT: Forms a complex with RuvA (By similarity).
+CC   -!- SIMILARITY: Belongs to the RuvB family.
+CC   -!- CAUTION: The sequence shown here is derived from an
+CC       EMBL/GenBank/DDBJ whole genome shotgun (WGS) entry which is
+CC       preliminary data.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see http://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution-NoDerivs License
+CC   -----------------------------------------------------------------------
+DR   EMBL; AHKM01000003; EHS39725.1; -; Genomic_DNA.
+DR   ProteinModelPortal; H3SRW3; -.
+DR   SMR; H3SRW3; 23-334.
+DR   EnsemblBacteria; EHS39725; EHS39725; O1O_02890.
+DR   OMA; NGYLERT; -.
+DR   GO; GO:0005524; F:ATP binding; IEA:UniProtKB-HAMAP.
+DR   GO; GO:0003677; F:DNA binding; IEA:InterPro.
+DR   GO; GO:0009378; F:four-way junction helicase activity; IEA:UniProtKB-HAMAP.
+DR   GO; GO:0006310; P:DNA recombination; IEA:UniProtKB-HAMAP.
+DR   GO; GO:0006281; P:DNA repair; IEA:UniProtKB-HAMAP.
+DR   GO; GO:0009432; P:SOS response; IEA:UniProtKB-HAMAP.
+DR   Gene3D; 1.10.10.10; -; 1.
+DR   HAMAP; MF_00016; DNA_helic_RuvB; 1; -.
+DR   InterPro; IPR003593; AAA+_ATPase.
+DR   InterPro; IPR003959; ATPase_AAA_core.
+DR   InterPro; IPR004605; DNA_helicase_Holl-junc_RuvB.
+DR   InterPro; IPR008823; DNA_helicase_Holl-junc_RuvB_C.
+DR   InterPro; IPR027417; P-loop_NTPase.
+DR   InterPro; IPR011991; WHTH_DNA-bd_dom.
+DR   Pfam; PF00004; AAA; 1.
+DR   Pfam; PF05491; RuvB_C; 1.
+DR   ProDom; PD005323; DNA_helicase_Holl-junc_RuvB_C; 1.
+DR   SMART; SM00382; AAA; 1.
+DR   SUPFAM; SSF52540; SSF52540; 1.
+DR   TIGRFAMs; TIGR00635; ruvB; 1.
+PE   3: Inferred from homology;
+KW   ATP-binding; DNA damage; DNA recombination; DNA repair; Helicase;
+KW   Hydrolase; Nucleotide-binding; SOS response.
+FT   NP_BIND      63     70       ATP (By similarity).
+SQ   SEQUENCE   352 AA;  38933 MW;  F24EE2804F12D7F1 CRC64;
+     MIEPDRLISA VSGRERDEQL DRAIRPLKLA DYIGQPSVRE QMELFIHAAR GRQEALDHTL
+     IFGPPGLGKT TLANIIAQEM GVSIKSTSGP VLERPGDLAA LLTNLEAGDV LFVDEIHRLS
+     PIVEEVLYPA MEDFQLDIMI GEGPAARSIK LDLPPFTLVG ATTRAGMLTN PLRDRFGIVQ
+     RLEFYNVEDL ATIVSRSAGI LGLEIEPQGA AEIAKRARGT PRIANRLLRR VRDFAEVRGQ
+     GDITRVIADK ALNLLDVDER GFDHLDRRLL LTMIDKFDGG PVGIDNLAAA LSEERHTIED
+     VLEPYLIQQG YIMRTPRGRV VTRHAYLHFG LNIPKRLGPG VTTDLFTSED GN
+//
