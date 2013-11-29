@@ -2,8 +2,6 @@ import itertools
 import sys
 
 def shortest_common_supersequence(s, t):
-    # Avoid RuntimeError: maximum recursion depth exceeded in comparison
-    sys.setrecursionlimit(1500)
     c = longest_common_subsequence_table(s, t)
     return shortest_common_supersequence_printable(c, s, t, len(s), len(t))
 
@@ -19,16 +17,24 @@ def longest_common_subsequence_table(s, t):
     return c
 
 def shortest_common_supersequence_printable(c, s, t, i, j):
-    if i == 0:
-        return t[0:j]
-    if j == 0:
-        return s[0:i]
-    if s[i-1] == t[j-1]:
-        return shortest_common_supersequence_printable(c, s, t, i-1, j-1) + s[i-1]
-    if c[i][j-1] > c[i-1][j]:
-        return shortest_common_supersequence_printable(c, s, t, i, j-1) + t[j-1]
-    else:
-        return shortest_common_supersequence_printable(c, s, t, i-1, j) + s[i-1]
+    reversed_scs = ''
+    while True:
+        if i == 0:
+            reversed_scs += t[0:j][::-1]
+            break
+        if j == 0:
+            reversed_scs += s[0:i][::-1]
+            break
+        if s[i-1] == t[j-1]:
+            reversed_scs += s[i-1]
+            i, j = i-1, j-1
+        elif c[i][j-1] > c[i-1][j]:
+            reversed_scs += t[j-1]
+            i, j = i, j-1
+        else:
+            reversed_scs += s[i-1]
+            i, j = i-1, j
+    return reversed_scs[::-1]
 
 def main():
     s = sys.stdin.readline().strip()
