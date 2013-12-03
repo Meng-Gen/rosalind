@@ -1,24 +1,6 @@
 import itertools
 import sys
 
-reversal_distance_table = {}
-
-def permutation_hash(p):
-    return '_'.join(map(str, p))
-
-def init_reversal_distance_table():
-    #root = list(range(1, 11)))
-    
-    count = 0
-    for it in itertools.permutations(range(1, 11)):
-        reversal_distance_table[permutation_hash(it)] = None
-        count += 1
-        if count % 100000 == 0:
-            print(permutation_hash(it))
-        #break
-    #reversal_distance_table[permutation_hash(root)] = 0
-    pass
-
 def read_permutation_pairs():
     pairs = []
     is_first_permutation = True
@@ -28,22 +10,85 @@ def read_permutation_pairs():
         if not line:
             continue
         if is_first_permutation:
-            p = list(line.split())
+            p = list(map(int, line.split()))
         else:
-            q = list(line.split())
+            q = list(map(int, line.split()))
             pairs.append([p, q])
         is_first_permutation = not is_first_permutation
     return pairs
-            
-def reversal_distance(p, q):
-    pass
+
+def normalize(pair):
+    p, q, r = pair[0], pair[1], []
+    for i in range(len(q)):
+        for j in range(len(p)):
+            if p[j] == q[i]:
+                r.append(j+1)
+                break
+    return r
+
+# Reference Book: 
+#   AN INTRODUCTION TO BIOINFORMATICS ALGORITHMS, NEIL C. JONES AND PAVEL A. PEVZNER 
+def num_breakpoints(permutation):
+    num = 0
+    prev_c = 0
+    for c in permutation:
+        if c != prev_c + 1 and c != prev_c - 1:
+            num += 1
+        prev_c = c
+    if prev_c != len(permutation):
+        num += 1
+    return num
+
+def has_decreasing_strip(permutation):
+    return True
+
+def get_min_reversal_permutation(permutation):
+    n = len(permutation)
+    min_num_breakpoints = n + 1
+    min_permutation = None
+    for r in itertools.combinations(range(n), 2):
+        next = get_reversal_permutation(permutation, r)
+        next_num_breakpoints = num_breakpoints(next)
+        if min_num_breakpoints > next_num_breakpoints:
+            min_num_breakpoints = next_num_breakpoints
+            min_permutation = next
+    return min_permutation
+
+def flip_increasing_strip(permutation):
+    strip = []
+    for i in range(1, len(permutation)):
+        if permutation[i] + 1 == permutation[i-1]:
+            if not strip:
+                strip.append(permutation[i-1])
+            strip.append(permutation[i])
+        else:
+            break
+    
+def get_reversal_permutation(permutation, r):
+    return permutation[:r[0]] + permutation[r[0]:r[1]+1][::-1] + permutation[r[1]+1:]
+
+def breakpoint_reversal_distance(permutation):
+    n = len(permutation)
+    distance = 0
+    #print(permutation, '<= BEGIN')
+    while num_breakpoints(permutation) > 0:
+        if has_decreasing_strip(permutation):
+            permutation = get_min_reversal_permutation(permutation)
+        else:
+            #print('''Could not found decreasing strip''')
+            #flip_increasing_strip(permutation)
+            permutation = get_min_reversal_permutation(permutation)
+        #print(permutation)
+        distance += 1
+    return distance
     
 def main():
-    init_reversal_distance_table()
     pairs = read_permutation_pairs()
-    distances = [reversal_distance(_[0], _[1]) for _ in pairs]
+    normalized_permutations = [normalize(pair) for pair in pairs]
+    distances = []
+    for p in normalized_permutations:
+        distances.append(breakpoint_reversal_distance(p))
     print(' '.join(map(str, distances)))
-    #print(reversal_distance_table)
     
 if __name__ == '__main__':
     sys.exit(main())
