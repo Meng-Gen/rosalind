@@ -1,0 +1,677 @@
+********************************************************************************
+MEME - Motif discovery tool
+********************************************************************************
+MEME version 4.9.1 (Release date: Fri Aug 23 16:49:42 2013 +1000)
+
+For further information on how to interpret these results or to get
+a copy of the MEME software please access http://meme.nbcr.net.
+
+This file may be used as input to the MAST algorithm for searching
+sequence databases for matches to groups of motifs.  MAST is available
+for interactive use and downloading at http://meme.nbcr.net.
+********************************************************************************
+
+
+********************************************************************************
+REFERENCE
+********************************************************************************
+If you use this program in your research, please cite:
+
+Timothy L. Bailey and Charles Elkan,
+"Fitting a mixture model by expectation maximization to discover
+motifs in biopolymers", Proceedings of the Second International
+Conference on Intelligent Systems for Molecular Biology, pp. 28-36,
+AAAI Press, Menlo Park, California, 1994.
+********************************************************************************
+
+
+********************************************************************************
+TRAINING SET
+********************************************************************************
+DATAFILE= sequences
+ALPHABET= ACDEFGHIKLMNPQRSTVWY
+Sequence name            Weight Length  Sequence name            Weight Length  
+-------------            ------ ------  -------------            ------ ------  
+Rosalind_4142            1.0000    443  Rosalind_2852            1.0000    463  
+Rosalind_1172            1.0000    440  Rosalind_0816            1.0000    463  
+Rosalind_3072            1.0000    426  Rosalind_0935            1.0000    411  
+Rosalind_9575            1.0000    423  Rosalind_2897            1.0000    418  
+Rosalind_3791            1.0000    432  Rosalind_3610            1.0000    409  
+Rosalind_1511            1.0000    481  Rosalind_9664            1.0000    441  
+Rosalind_4832            1.0000    433  Rosalind_2752            1.0000    489  
+Rosalind_0401            1.0000    431  Rosalind_4356            1.0000    413  
+Rosalind_3214            1.0000    474  Rosalind_8871            1.0000    467  
+Rosalind_6882            1.0000    412  Rosalind_2493            1.0000    407  
+Rosalind_3931            1.0000    463  Rosalind_6274            1.0000    417  
+Rosalind_4412            1.0000    489  Rosalind_2098            1.0000    407  
+Rosalind_4898            1.0000    462  Rosalind_7631            1.0000    459  
+Rosalind_7286            1.0000    447  Rosalind_5564            1.0000    414  
+Rosalind_6926            1.0000    487  Rosalind_1982            1.0000    478  
+Rosalind_3218            1.0000    475  Rosalind_3600            1.0000    466  
+Rosalind_7851            1.0000    424  Rosalind_4371            1.0000    466  
+Rosalind_2880            1.0000    453  Rosalind_9815            1.0000    414  
+Rosalind_0951            1.0000    417  Rosalind_1763            1.0000    498  
+Rosalind_3667            1.0000    411  Rosalind_5194            1.0000    474  
+Rosalind_5096            1.0000    457  Rosalind_0753            1.0000    423  
+Rosalind_2417            1.0000    470  Rosalind_7949            1.0000    486  
+Rosalind_8858            1.0000    423  Rosalind_3909            1.0000    425  
+Rosalind_7113            1.0000    484  Rosalind_7182            1.0000    426  
+Rosalind_6815            1.0000    486  Rosalind_3351            1.0000    462  
+Rosalind_0242            1.0000    413  Rosalind_4427            1.0000    427  
+Rosalind_6260            1.0000    462  Rosalind_2155            1.0000    442  
+Rosalind_2762            1.0000    440  Rosalind_3230            1.0000    462  
+Rosalind_9823            1.0000    413  Rosalind_9800            1.0000    429  
+Rosalind_3858            1.0000    472  Rosalind_6451            1.0000    474  
+Rosalind_0910            1.0000    473  Rosalind_9147            1.0000    418  
+Rosalind_7107            1.0000    452  Rosalind_4459            1.0000    440  
+Rosalind_9569            1.0000    419  Rosalind_0448            1.0000    465  
+Rosalind_7075            1.0000    472  Rosalind_5517            1.0000    454  
+Rosalind_0846            1.0000    456  Rosalind_5397            1.0000    438  
+Rosalind_4594            1.0000    425  Rosalind_1922            1.0000    455  
+Rosalind_4431            1.0000    499  Rosalind_9685            1.0000    456  
+Rosalind_8459            1.0000    486  Rosalind_0461            1.0000    406  
+Rosalind_2915            1.0000    427  Rosalind_6565            1.0000    462  
+Rosalind_3170            1.0000    423  Rosalind_7560            1.0000    413  
+Rosalind_9573            1.0000    496  Rosalind_8714            1.0000    474  
+Rosalind_4671            1.0000    432  Rosalind_4788            1.0000    475  
+Rosalind_3093            1.0000    469  Rosalind_6236            1.0000    496  
+Rosalind_1970            1.0000    477  Rosalind_5122            1.0000    493  
+Rosalind_1153            1.0000    454  Rosalind_6387            1.0000    492  
+Rosalind_0599            1.0000    435  Rosalind_1169            1.0000    479  
+Rosalind_6198            1.0000    438  Rosalind_2003            1.0000    456  
+Rosalind_2841            1.0000    499  
+********************************************************************************
+
+********************************************************************************
+COMMAND LINE SUMMARY
+********************************************************************************
+This information can also be useful in the event you wish to report a
+problem with the MEME software.
+
+command: meme sequences -protein -oc . -nostatus -time 18000 -maxsize 60000 -mod zoops -nmotifs 1 -minw 20 -maxw 50 
+
+model:  mod=         zoops    nmotifs=         1    evt=           inf
+object function=  E-value of product of p-values
+width:  minw=           20    maxw=           50    minic=        0.00
+width:  wg=             11    ws=              1    endgaps=       yes
+nsites: minsites=        2    maxsites=       95    wnsites=       0.8
+theta:  prob=            1    spmap=         pam    spfuzz=        120
+global: substring=     yes    branching=      no    wbranch=        no
+em:     prior=       megap    b=          213885    maxiter=        50
+        distance=    1e-05
+data:   n=           42777    N=              95
+
+sample: seed=            0    seqfrac=         1
+Dirichlet mixture priors file: prior30.plib
+Letter frequencies in dataset:
+A 0.050 C 0.058 D 0.050 E 0.048 F 0.052 G 0.052 H 0.048 I 0.044 K 0.048 
+L 0.049 M 0.048 N 0.051 P 0.051 Q 0.052 R 0.047 S 0.052 T 0.050 V 0.052 
+W 0.052 Y 0.046 
+Background letter frequencies (from dataset with add-one prior applied):
+A 0.050 C 0.058 D 0.050 E 0.048 F 0.052 G 0.052 H 0.048 I 0.044 K 0.048 
+L 0.049 M 0.048 N 0.051 P 0.051 Q 0.052 R 0.047 S 0.052 T 0.050 V 0.052 
+W 0.052 Y 0.046 
+********************************************************************************
+
+
+********************************************************************************
+MOTIF  1	width =   33   sites =  94   llr = 8960   E-value = 2.0e-3473
+********************************************************************************
+--------------------------------------------------------------------------------
+	Motif 1 Description
+--------------------------------------------------------------------------------
+Simplified        A  ::::::::::a:::::::a::::::::::::::
+pos.-specific     C  a::::a:a:a:::::::::::::::::::::::
+probability       D  ::::::::::::::::::::a::::::::::::
+matrix            E  ::::::::::::::::::::::::::::a::::
+                  F  ::::::::::::3::::::::::3:::::a:::
+                  G  ::::::::5:::::::::::::a7:::::::::
+                  H  :::::::::::a:::::::::::::::::::::
+                  I  :::::::::::::::::::::::::::::::::
+                  K  :::::::::::::::::::::::::::::::::
+                  L  ::::::::::::::::::::::::::a:::::a
+                  M  :::::::::::::::::::::::::a:::::::
+                  N  ::a:a::::::::::::::::::::::::::::
+                  P  :a::::a:::::3::::::::::::::::::::
+                  Q  ::::::::::::::::a::a::::a::::::::
+                  R  :::::::::::::::::::::::::::::::::
+                  S  :::::::::::::::a:::::::::::a::a::
+                  T  ::::::::::::3aa::::::::::::::::::
+                  V  :::a::::5::::::::::::a:::::::::::
+                  W  :::::::::::::::::a:::::::::::::a:
+                  Y  :::::::::::::::::::::::::::::::::
+
+         bits    4.5  ** * *   ** **   * *    ** *   *
+                 4.1 ******** *** ********** *********
+                 3.6 ******** *** ********** *********
+                 3.2 ************ ********************
+Relative         2.7 *********************************
+Entropy          2.3 *********************************
+(137.5 bits)     1.8 *********************************
+                 1.4 *********************************
+                 0.9 *********************************
+                 0.5 *********************************
+                 0.0 ---------------------------------
+
+Multilevel           CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL
+consensus                    V   P          F         
+sequence                         T                    
+                                                      
+                                                      
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 sites sorted by position p-value
+--------------------------------------------------------------------------------
+Sequence name             Start   P-value                          Site             
+-------------             ----- ---------            ---------------------------------
+Rosalind_2003               329  2.16e-42 RRNCDGTKEG CPNVNCPCGCAHTTTSQWAQDVGGQMLSEFSWL TSMIAIRGWW
+Rosalind_6198               116  2.16e-42 GATLNVMQWI CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL NSQGLDRLDD
+Rosalind_0599               192  2.16e-42 QWTDWHQLAF CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL SGMNVKCWRI
+Rosalind_6387               131  2.16e-42 VLCNRYSAWS CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL YVDHMPRNWD
+Rosalind_1153               130  2.16e-42 PTRRNWAKDL CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL DKLDGRHCNG
+Rosalind_5122               431  2.16e-42 LGTCKIQMNC CPNVNCPCGCAHTTTSQWAQDVGGQMLSEFSWL GNLILLEFYQ
+Rosalind_1970               318  2.16e-42 VGTKVCAKHC CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL PCMMIKLLKW
+Rosalind_6236               148  2.16e-42 PAMYWDETPK CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL AKMLFVKTQC
+Rosalind_4788               297  2.16e-42 NTTCVLGNHF CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL QWWLEEQRYL
+Rosalind_4671                 6  2.16e-42      EDHCI CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL TYGMEISIMA
+Rosalind_8714               224  2.16e-42 CPTRKPMLCQ CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL KGIQQFNQYN
+Rosalind_7560               131  2.16e-42 VHLVPDRANA CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL GGWKCPRLTN
+Rosalind_3170               307  2.16e-42 LAQCEDNACG CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL PTLWKEDLHP
+Rosalind_6565                39  2.16e-42 FFSNITIVWY CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL SGAGFFLFRY
+Rosalind_8459                29  2.16e-42 PFFPKACCGF CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL QVAIINGAMT
+Rosalind_9685               105  2.16e-42 KEHYWQDRLL CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL YPFGEDTKLN
+Rosalind_1922               374  2.16e-42 FQDSMYRNVH CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL DEECQCEHPS
+Rosalind_4594               351  2.16e-42 TISELYNSFA CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL IMHGEDVEPV
+Rosalind_5397               189  2.16e-42 EMDKQHDHTI CPNVNCPCGCAHTTTSQWAQDVGGQMLSEFSWL VVEGQCIDGH
+Rosalind_0846               364  2.16e-42 ELRRINVQYY CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL KFGDYMCYQK
+Rosalind_5517               212  2.16e-42 QVFLYWWTEP CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL QGSKQWEVSF
+Rosalind_7075               207  2.16e-42 IANHMWFWMD CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL KQVQNATNCG
+Rosalind_4459                98  2.16e-42 QTTMCQSACQ CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL LEYYSMGEDA
+Rosalind_0910               150  2.16e-42 DFCMERQYGC CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL SHCNSAEKNF
+Rosalind_9800               181  2.16e-42 VPVCECKALC CPNVNCPCGCAHTTTSQWAQDVGGQMLSEFSWL VAINLPPHMR
+Rosalind_3230               379  2.16e-42 LHLSHRMFRQ CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL PRGLCDTHQK
+Rosalind_2762               201  2.16e-42 RNHIGPFMYA CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL ETVWEDKSRN
+Rosalind_6260               338  2.16e-42 ADMRICKQHA CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL AYVCIQWEYQ
+Rosalind_4427               273  2.16e-42 ARLHHCIIMM CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL PPHVIAVFSW
+Rosalind_0242               323  2.16e-42 TQMDQLLSIG CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL CAVEYCCCRI
+Rosalind_3351                45  2.16e-42 FEFHESEINE CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL QHCWNRTEEE
+Rosalind_6815               253  2.16e-42 ITKMYKERSE CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL TKKHGFFPMW
+Rosalind_7113                48  2.16e-42 KVVDQWTTTF CPNVNCPCGCAHTTTSQWAQDVGGQMLSEFSWL IQRWPFGHQA
+Rosalind_3909                48  2.16e-42 PCCVHSDWRD CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL IFFNRFWGFE
+Rosalind_0753               245  2.16e-42 SKNPDYTTRP CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL LYQWDNWYSL
+Rosalind_5194               440  2.16e-42 CKIGCLAHPT CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL VW        
+Rosalind_3667               348  2.16e-42 GLLKGVDKPV CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL FAKNMDSRVS
+Rosalind_1763               450  2.16e-42 WCNNRKCSFD CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL SAQMIVPFGC
+Rosalind_0951               148  2.16e-42 HIREPRQNLY CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL IEYHQQKDLL
+Rosalind_9815               321  2.16e-42 DKLVRWQWLE CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL LMSMCVRLFV
+Rosalind_3600               414  2.16e-42 MLFYFNYDNS CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL GIGNYRRRFA
+Rosalind_1982                41  2.16e-42 YSYNIQHMLG CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL TFCKMIEIPN
+Rosalind_4898               277  2.16e-42 VLGWWYLWSK CPNVNCPCGCAHTTTSQWAQDVGGQMLSEFSWL DVQRYQYFGI
+Rosalind_2098                48  2.16e-42 IWTYMCCTAL CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL LEIGEGTALL
+Rosalind_4412               380  2.16e-42 QLECAKYCCY CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL PWPSRGTNIR
+Rosalind_3931               407  2.16e-42 NRAWCDLCYR CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL RRVYRYLSFM
+Rosalind_2493               150  2.16e-42 KSAMNFTRIY CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL AVIRNEYDGW
+Rosalind_8871               118  2.16e-42 FCVQVYNWEV CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL RQHRYVASMK
+Rosalind_3214               285  2.16e-42 RWGNYMDVQW CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL MRMPWNERVL
+Rosalind_4356               306  2.16e-42 FNEELYHVNT CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL NKHEWFNLLT
+Rosalind_0401               127  2.16e-42 SEYWKNKDMK CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL KSEWYKSLVH
+Rosalind_2752               123  2.16e-42 PHRTFPFSVK CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL PDTISNTQGA
+Rosalind_4832                46  2.16e-42 HCIGMQAWSQ CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL LRRPWNHFSM
+Rosalind_9664               275  2.16e-42 KLMDAPELWQ CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL TAYAWECASF
+Rosalind_1511                20  2.16e-42 MDCYCQHCYT CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL KCTHPKKEND
+Rosalind_3791               172  2.16e-42 AWTHLFDATV CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL KAKDTFLFPF
+Rosalind_2897               145  2.16e-42 ICVVLNPMYL CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL MMSVDNDSND
+Rosalind_9575               299  2.16e-42 MLAFVIHVCH CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL CSDMDGDHCA
+Rosalind_0935               373  2.16e-42 KHILGCCGDD CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL RIRLLC    
+Rosalind_3072               123  2.16e-42 QLHHHECSIK CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL HASMCFEDRP
+Rosalind_0816               193  2.16e-42 CLLLNESTVT CPNVNCPCGCAHTTTSQWAQDVGGQMLSEFSWL KFERKMKAWF
+Rosalind_1172               263  2.16e-42 FLRAMRTMEG CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL ARNAETTLHA
+Rosalind_2852               331  2.16e-42 ANVDRILCIR CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL HCMNQVAFGG
+Rosalind_4142               315  2.16e-42 GDFSTSLNPP CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL PHINPFFENA
+Rosalind_2841               396  4.32e-42 QNVNETQDCG CPNVNCPCVCAHFTTSQWAQDVGFQMLSEFSWL DGGRNKEFDM
+Rosalind_1169               175  4.32e-42 SNERNMLSQL CPNVNCPCVCAHTTTSQWAQDVGFQMLSEFSWL LARHANMWWN
+Rosalind_3093               335  4.32e-42 KNPPSFSCPE CPNVNCPCGCAHTTTSQWAQDVGFQMLSEFSWL WDAHDISWPP
+Rosalind_9573               402  4.32e-42 MGPQRYPMQC CPNVNCPCVCAHTTTSQWAQDVGFQMLSEFSWL GQGWKAATTM
+Rosalind_2915                 7  4.32e-42     RVQSDH CPNVNCPCGCAHPTTSQWAQDVGFQMLSEFSWL FFTTDWNCEC
+Rosalind_0461               150  4.32e-42 LVMTDFVNVM CPNVNCPCVCAHTTTSQWAQDVGFQMLSEFSWL CTYKQQDNGY
+Rosalind_4431               173  4.32e-42 EPNTEDYAYD CPNVNCPCGCAHTTTSQWAQDVGFQMLSEFSWL TCAMDVGHPG
+Rosalind_0448               211  4.32e-42 DMDDLLYITM CPNVNCPCVCAHTTTSQWAQDVGFQMLSEFSWL RSRNAHNRYD
+Rosalind_9569               266  4.32e-42 YIIQWYADRV CPNVNCPCGCAHFTTSQWAQDVGFQMLSEFSWL MKVIWITGQI
+Rosalind_7107               124  4.32e-42 ASRGVCAYVS CPNVNCPCVCAHPTTSQWAQDVGFQMLSEFSWL ATISGSACVD
+Rosalind_9147               101  4.32e-42 CNHDTISQAS CPNVNCPCGCAHFTTSQWAQDVGFQMLSEFSWL NMTCPNQAVE
+Rosalind_6451                27  4.32e-42 NAHFKWDYNK CPNVNCPCGCAHPTTSQWAQDVGFQMLSEFSWL PFVEQYTHMP
+Rosalind_3858               368  4.32e-42 GMDIAAVPIY CPNVNCPCVCAHFTTSQWAQDVGFQMLSEFSWL NPTGQVVWRT
+Rosalind_9823                26  4.32e-42 SWSWTIQFTG CPNVNCPCVCAHPTTSQWAQDVGFQMLSEFSWL QYAKIGWLDG
+Rosalind_2155                75  4.32e-42 DCMMKFNYVM CPNVNCPCVCAHPTTSQWAQDVGFQMLSEFSWL DCIGFTMLLK
+Rosalind_7182               346  4.32e-42 MCDERRQAWN CPNVNCPCVCAHPTTSQWAQDVGFQMLSEFSWL SHYWCNITFN
+Rosalind_7949               389  4.32e-42 PHVMIALNHF CPNVNCPCGCAHTTTSQWAQDVGFQMLSEFSWL PKVNSDDNTN
+Rosalind_2417               347  4.32e-42 GEITHCMEWH CPNVNCPCVCAHFTTSQWAQDVGFQMLSEFSWL NACACCTEYE
+Rosalind_5096                85  4.32e-42 VANAEFAWPM CPNVNCPCVCAHTTTSQWAQDVGFQMLSEFSWL RFSQPHVKMM
+Rosalind_2880               127  4.32e-42 TQNHFRIWCQ CPNVNCPCGCAHPTTSQWAQDVGFQMLSEFSWL HRGLVYCSIV
+Rosalind_4371               116  4.32e-42 KKDDNQWMHK CPNVNCPCGCAHTTTSQWAQDVGFQMLSEFSWL KIFFFGCLIN
+Rosalind_7851               227  4.32e-42 DVAPWQMCVT CPNVNCPCGCAHTTTSQWAQDVGFQMLSEFSWL IMWVAGKRRQ
+Rosalind_3218               125  4.32e-42 PKAFNDQGHA CPNVNCPCVCAHTTTSQWAQDVGFQMLSEFSWL MTGMARDVCR
+Rosalind_6926               390  4.32e-42 HNSPIYHQSH CPNVNCPCGCAHFTTSQWAQDVGFQMLSEFSWL CIDNQHTMGY
+Rosalind_5564                55  4.32e-42 TKFCMICPRC CPNVNCPCGCAHFTTSQWAQDVGFQMLSEFSWL EKHVVDWCGT
+Rosalind_7286               266  4.32e-42 EESMGLFHDP CPNVNCPCVCAHTTTSQWAQDVGFQMLSEFSWL STWSNNESVT
+Rosalind_7631               320  4.32e-42 NEDCVEWEPF CPNVNCPCGCAHTTTSQWAQDVGFQMLSEFSWL NMDRPFCVNT
+Rosalind_6274                65  4.32e-42 WKPDNYYQLN CPNVNCPCGCAHPTTSQWAQDVGFQMLSEFSWL VPKPAAQNIF
+Rosalind_6882                98  4.32e-42 YCVPFALDNQ CPNVNCPCVCAHPTTSQWAQDVGFQMLSEFSWL IYQRNYPAIQ
+Rosalind_3610               286  4.32e-42 KPDHVAEEGE CPNVNCPCVCAHFTTSQWAQDVGFQMLSEFSWL WRLERFFNWR
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 block diagrams
+--------------------------------------------------------------------------------
+SEQUENCE NAME            POSITION P-VALUE  MOTIF DIAGRAM
+-------------            ----------------  -------------
+Rosalind_2003                     2.2e-42  328_[1]_95
+Rosalind_6198                     2.2e-42  115_[1]_290
+Rosalind_0599                     2.2e-42  191_[1]_211
+Rosalind_6387                     2.2e-42  130_[1]_329
+Rosalind_1153                     2.2e-42  129_[1]_292
+Rosalind_5122                     2.2e-42  430_[1]_30
+Rosalind_1970                     2.2e-42  317_[1]_127
+Rosalind_6236                     2.2e-42  147_[1]_316
+Rosalind_4788                     2.2e-42  296_[1]_146
+Rosalind_4671                     2.2e-42  5_[1]_394
+Rosalind_8714                     2.2e-42  223_[1]_218
+Rosalind_7560                     2.2e-42  130_[1]_250
+Rosalind_3170                     2.2e-42  306_[1]_84
+Rosalind_6565                     2.2e-42  38_[1]_391
+Rosalind_8459                     2.2e-42  28_[1]_425
+Rosalind_9685                     2.2e-42  104_[1]_319
+Rosalind_1922                     2.2e-42  373_[1]_49
+Rosalind_4594                     2.2e-42  350_[1]_42
+Rosalind_5397                     2.2e-42  188_[1]_217
+Rosalind_0846                     2.2e-42  363_[1]_60
+Rosalind_5517                     2.2e-42  211_[1]_210
+Rosalind_7075                     2.2e-42  206_[1]_233
+Rosalind_4459                     2.2e-42  97_[1]_310
+Rosalind_0910                     2.2e-42  149_[1]_291
+Rosalind_9800                     2.2e-42  180_[1]_216
+Rosalind_3230                     2.2e-42  378_[1]_51
+Rosalind_2762                     2.2e-42  200_[1]_207
+Rosalind_6260                     2.2e-42  337_[1]_92
+Rosalind_4427                     2.2e-42  272_[1]_122
+Rosalind_0242                     2.2e-42  322_[1]_58
+Rosalind_3351                     2.2e-42  44_[1]_385
+Rosalind_6815                     2.2e-42  252_[1]_201
+Rosalind_7113                     2.2e-42  47_[1]_404
+Rosalind_3909                     2.2e-42  47_[1]_345
+Rosalind_0753                     2.2e-42  244_[1]_146
+Rosalind_5194                     2.2e-42  439_[1]_2
+Rosalind_3667                     2.2e-42  347_[1]_31
+Rosalind_1763                     2.2e-42  449_[1]_16
+Rosalind_0951                     2.2e-42  147_[1]_237
+Rosalind_9815                     2.2e-42  320_[1]_61
+Rosalind_3600                     2.2e-42  413_[1]_20
+Rosalind_1982                     2.2e-42  40_[1]_405
+Rosalind_4898                     2.2e-42  276_[1]_153
+Rosalind_2098                     2.2e-42  47_[1]_327
+Rosalind_4412                     2.2e-42  379_[1]_77
+Rosalind_3931                     2.2e-42  406_[1]_24
+Rosalind_2493                     2.2e-42  149_[1]_225
+Rosalind_8871                     2.2e-42  117_[1]_317
+Rosalind_3214                     2.2e-42  284_[1]_157
+Rosalind_4356                     2.2e-42  305_[1]_75
+Rosalind_0401                     2.2e-42  126_[1]_272
+Rosalind_2752                     2.2e-42  122_[1]_334
+Rosalind_4832                     2.2e-42  45_[1]_355
+Rosalind_9664                     2.2e-42  274_[1]_134
+Rosalind_1511                     2.2e-42  19_[1]_429
+Rosalind_3791                     2.2e-42  171_[1]_228
+Rosalind_2897                     2.2e-42  144_[1]_241
+Rosalind_9575                     2.2e-42  298_[1]_92
+Rosalind_0935                     2.2e-42  372_[1]_6
+Rosalind_3072                     2.2e-42  122_[1]_271
+Rosalind_0816                     2.2e-42  192_[1]_238
+Rosalind_1172                     2.2e-42  262_[1]_145
+Rosalind_2852                     2.2e-42  330_[1]_100
+Rosalind_4142                     2.2e-42  314_[1]_96
+Rosalind_2841                     4.3e-42  395_[1]_71
+Rosalind_1169                     4.3e-42  174_[1]_272
+Rosalind_3093                     4.3e-42  334_[1]_102
+Rosalind_9573                     4.3e-42  401_[1]_62
+Rosalind_2915                     4.3e-42  6_[1]_388
+Rosalind_0461                     4.3e-42  149_[1]_224
+Rosalind_4431                     4.3e-42  172_[1]_294
+Rosalind_0448                     4.3e-42  210_[1]_222
+Rosalind_9569                     4.3e-42  265_[1]_121
+Rosalind_7107                     4.3e-42  123_[1]_296
+Rosalind_9147                     4.3e-42  100_[1]_285
+Rosalind_6451                     4.3e-42  26_[1]_415
+Rosalind_3858                     4.3e-42  367_[1]_72
+Rosalind_9823                     4.3e-42  25_[1]_355
+Rosalind_2155                     4.3e-42  74_[1]_335
+Rosalind_7182                     4.3e-42  345_[1]_48
+Rosalind_7949                     4.3e-42  388_[1]_65
+Rosalind_2417                     4.3e-42  346_[1]_91
+Rosalind_5096                     4.3e-42  84_[1]_340
+Rosalind_2880                     4.3e-42  126_[1]_294
+Rosalind_4371                     4.3e-42  115_[1]_318
+Rosalind_7851                     4.3e-42  226_[1]_165
+Rosalind_3218                     4.3e-42  124_[1]_318
+Rosalind_6926                     4.3e-42  389_[1]_65
+Rosalind_5564                     4.3e-42  54_[1]_327
+Rosalind_7286                     4.3e-42  265_[1]_149
+Rosalind_7631                     4.3e-42  319_[1]_107
+Rosalind_6274                     4.3e-42  64_[1]_320
+Rosalind_6882                     4.3e-42  97_[1]_282
+Rosalind_3610                     4.3e-42  285_[1]_91
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 in BLOCKS format
+--------------------------------------------------------------------------------
+BL   MOTIF 1 width=33 seqs=94
+Rosalind_2003            (  329) CPNVNCPCGCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_6198            (  116) CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_0599            (  192) CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_6387            (  131) CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_1153            (  130) CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_5122            (  431) CPNVNCPCGCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_1970            (  318) CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_6236            (  148) CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_4788            (  297) CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_4671            (    6) CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_8714            (  224) CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_7560            (  131) CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_3170            (  307) CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_6565            (   39) CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_8459            (   29) CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_9685            (  105) CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_1922            (  374) CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_4594            (  351) CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_5397            (  189) CPNVNCPCGCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_0846            (  364) CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_5517            (  212) CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_7075            (  207) CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_4459            (   98) CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_0910            (  150) CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_9800            (  181) CPNVNCPCGCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_3230            (  379) CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_2762            (  201) CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_6260            (  338) CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_4427            (  273) CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_0242            (  323) CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_3351            (   45) CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_6815            (  253) CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_7113            (   48) CPNVNCPCGCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_3909            (   48) CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_0753            (  245) CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_5194            (  440) CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_3667            (  348) CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_1763            (  450) CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_0951            (  148) CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_9815            (  321) CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_3600            (  414) CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_1982            (   41) CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_4898            (  277) CPNVNCPCGCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_2098            (   48) CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_4412            (  380) CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_3931            (  407) CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_2493            (  150) CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_8871            (  118) CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_3214            (  285) CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_4356            (  306) CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_0401            (  127) CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_2752            (  123) CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_4832            (   46) CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_9664            (  275) CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_1511            (   20) CPNVNCPCGCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_3791            (  172) CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_2897            (  145) CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_9575            (  299) CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_0935            (  373) CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_3072            (  123) CPNVNCPCVCAHFTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_0816            (  193) CPNVNCPCGCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_1172            (  263) CPNVNCPCVCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_2852            (  331) CPNVNCPCVCAHTTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_4142            (  315) CPNVNCPCGCAHPTTSQWAQDVGGQMLSEFSWL  1 
+Rosalind_2841            (  396) CPNVNCPCVCAHFTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_1169            (  175) CPNVNCPCVCAHTTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_3093            (  335) CPNVNCPCGCAHTTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_9573            (  402) CPNVNCPCVCAHTTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_2915            (    7) CPNVNCPCGCAHPTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_0461            (  150) CPNVNCPCVCAHTTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_4431            (  173) CPNVNCPCGCAHTTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_0448            (  211) CPNVNCPCVCAHTTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_9569            (  266) CPNVNCPCGCAHFTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_7107            (  124) CPNVNCPCVCAHPTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_9147            (  101) CPNVNCPCGCAHFTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_6451            (   27) CPNVNCPCGCAHPTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_3858            (  368) CPNVNCPCVCAHFTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_9823            (   26) CPNVNCPCVCAHPTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_2155            (   75) CPNVNCPCVCAHPTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_7182            (  346) CPNVNCPCVCAHPTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_7949            (  389) CPNVNCPCGCAHTTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_2417            (  347) CPNVNCPCVCAHFTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_5096            (   85) CPNVNCPCVCAHTTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_2880            (  127) CPNVNCPCGCAHPTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_4371            (  116) CPNVNCPCGCAHTTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_7851            (  227) CPNVNCPCGCAHTTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_3218            (  125) CPNVNCPCVCAHTTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_6926            (  390) CPNVNCPCGCAHFTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_5564            (   55) CPNVNCPCGCAHFTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_7286            (  266) CPNVNCPCVCAHTTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_7631            (  320) CPNVNCPCGCAHTTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_6274            (   65) CPNVNCPCGCAHPTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_6882            (   98) CPNVNCPCVCAHPTTSQWAQDVGFQMLSEFSWL  1 
+Rosalind_3610            (  286) CPNVNCPCVCAHFTTSQWAQDVGFQMLSEFSWL  1 
+//
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 position-specific scoring matrix
+--------------------------------------------------------------------------------
+log-odds matrix: alength= 20 w= 33 n= 39737 bayes= 9.80409 E= 2.0e-3473 
+  -598    410   -763   -725   -773   -721   -816   -660   -768   -659   -770   -768   -777   -799   -723   -688   -645   -711   -967   -833 
+  -957  -1070   -940  -1016  -1025   -842  -1005  -1078   -997   -944  -1187  -1006    430  -1026   -949   -963   -980  -1054  -1104  -1023 
+  -964  -1070   -934  -1016  -1025   -841  -1002  -1082   -998   -947  -1191    429   -919  -1027   -951   -961   -981  -1059  -1103  -1020 
+  -880  -1018   -941  -1008   -971   -841  -1008   -705   -992   -804  -1017   -998   -917  -1024   -950   -943   -912    425  -1102  -1002 
+  -964  -1070   -934  -1016  -1025   -841  -1002  -1082   -998   -947  -1191    429   -919  -1027   -951   -961   -981  -1059  -1103  -1020 
+  -598    410   -763   -725   -773   -721   -816   -660   -768   -659   -770   -768   -777   -799   -723   -688   -645   -711   -967   -833 
+  -957  -1070   -940  -1016  -1025   -842  -1005  -1078   -997   -944  -1187  -1006    430  -1026   -949   -963   -980  -1054  -1104  -1023 
+  -598    410   -763   -725   -773   -721   -816   -660   -768   -659   -770   -768   -777   -799   -723   -688   -645   -711   -967   -833 
+  -703   -956   -928   -983   -974    327   -993   -786   -975   -841  -1034   -954   -884   -988   -928   -775   -829    325  -1092   -994 
+  -598    410   -763   -725   -773   -721   -816   -660   -768   -659   -770   -768   -777   -799   -723   -688   -645   -711   -967   -833 
+   431   -968   -930   -988  -1000   -771   -993  -1016   -979   -913  -1102   -958   -884   -989   -929   -775   -843   -925  -1093  -1006 
+  -973  -1072   -943  -1023  -1020   -844    439  -1085  -1003   -947  -1193  -1009   -920  -1031   -952   -973   -987  -1062  -1102  -1013 
+  -649   -918   -909   -949    272   -740   -872   -888   -937   -793   -974   -895    269   -931   -889   -716    271   -836   -919   -653 
+  -925  -1061   -942  -1019  -1024   -837  -1006  -1073  -1000   -944  -1181  -1003   -917  -1027   -950   -940    432  -1042  -1103  -1021 
+  -925  -1061   -942  -1019  -1024   -837  -1006  -1073  -1000   -944  -1181  -1003   -917  -1027   -950   -940    432  -1042  -1103  -1021 
+  -855  -1039   -939  -1013  -1020   -823  -1003  -1066   -997   -939  -1166   -994   -911  -1020   -946    425   -937  -1016  -1101  -1018 
+  -968  -1071   -943  -1022  -1026   -844  -1007  -1084  -1002   -947  -1193  -1009   -920    425   -952   -971   -986  -1061  -1104  -1021 
+  -968  -1068   -940  -1017   -992   -843  -1002  -1073   -998   -932  -1174  -1005   -919  -1026   -948   -969   -982  -1051    426   -988 
+   431   -968   -930   -988  -1000   -771   -993  -1016   -979   -913  -1102   -958   -884   -989   -929   -775   -843   -925  -1093  -1006 
+  -968  -1071   -943  -1022  -1026   -844  -1007  -1084  -1002   -947  -1193  -1009   -920    425   -952   -971   -986  -1061  -1104  -1021 
+  -970  -1071    433  -1008  -1027   -843  -1005  -1083  -1001   -947  -1192   -996   -920  -1029   -951   -969   -985  -1061  -1104  -1023 
+  -880  -1018   -941  -1008   -971   -841  -1008   -705   -992   -804  -1017   -998   -917  -1024   -950   -943   -912    425  -1102  -1002 
+  -898  -1056   -916   -988  -1017    427   -993  -1059   -971   -937  -1159   -965   -911  -1012   -930   -921   -960  -1029  -1094  -1011 
+  -895  -1049   -939  -1013    263    372   -977  -1046   -994   -919  -1146   -991   -914  -1016   -944   -921   -953  -1018  -1055   -870 
+  -968  -1071   -943  -1022  -1026   -844  -1007  -1084  -1002   -947  -1193  -1009   -920    425   -952   -971   -986  -1061  -1104  -1021 
+  -883  -1001   -911   -963   -927   -823   -971   -810   -937   -704    437   -957   -892   -974   -918   -901   -904   -861  -1017   -909 
+  -932  -1046   -946  -1015   -864   -846  -1000   -789   -996    434   -863  -1006   -918  -1007   -945   -965   -951   -871  -1067   -973 
+  -855  -1039   -939  -1013  -1020   -823  -1003  -1066   -997   -939  -1166   -994   -911  -1020   -946    425   -937  -1016  -1101  -1018 
+  -635   -889   -406    437   -811   -656   -739   -689   -720   -712   -843   -633   -792   -606   -720   -686   -702   -715   -929   -807 
+  -963  -1064   -941  -1017    427   -843   -973  -1042   -996   -911  -1143   -997   -919  -1019   -945   -962   -978  -1032  -1046   -849 
+  -855  -1039   -939  -1013  -1020   -823  -1003  -1066   -997   -939  -1166   -994   -911  -1020   -946    425   -937  -1016  -1101  -1018 
+  -968  -1068   -940  -1017   -992   -843  -1002  -1073   -998   -932  -1174  -1005   -919  -1026   -948   -969   -982  -1051    426   -988 
+  -932  -1046   -946  -1015   -864   -846  -1000   -789   -996    434   -863  -1006   -918  -1007   -945   -965   -951   -871  -1067   -973 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 position-specific probability matrix
+--------------------------------------------------------------------------------
+letter-probability matrix: alength= 20 w= 33 nsites= 94 E= 2.0e-3473 
+ 0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.500000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.500000  0.000000  0.000000 
+ 0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.340426  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.329787  0.000000  0.000000  0.000000  0.329787  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000 
+ 1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.319149  0.680851  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000 
+ 0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  1.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 regular expression
+--------------------------------------------------------------------------------
+CPNVNCPC[GV]CAH[FPT]TTSQWAQDVG[GF]QMLSEFSWL
+--------------------------------------------------------------------------------
+
+
+
+
+Time 67.59 secs.
+
+********************************************************************************
+
+
+********************************************************************************
+SUMMARY OF MOTIFS
+********************************************************************************
+
+--------------------------------------------------------------------------------
+	Combined block diagrams: non-overlapping sites with p-value < 0.0001
+--------------------------------------------------------------------------------
+SEQUENCE NAME            COMBINED P-VALUE  MOTIF DIAGRAM
+-------------            ----------------  -------------
+Rosalind_4142                    8.88e-40  314_[1(2.16e-42)]_96
+Rosalind_2852                    9.31e-40  330_[1(2.16e-42)]_100
+Rosalind_1172                    8.82e-40  262_[1(2.16e-42)]_145
+Rosalind_0816                    9.31e-40  192_[1(2.16e-42)]_238
+Rosalind_3072                    8.51e-40  122_[1(2.16e-42)]_271
+Rosalind_0935                    8.19e-40  372_[1(2.16e-42)]_6
+Rosalind_9575                    8.45e-40  298_[1(2.16e-42)]_92
+Rosalind_2897                    8.34e-40  144_[1(2.16e-42)]_241
+Rosalind_3791                    8.64e-40  171_[1(2.16e-42)]_228
+Rosalind_3610                    1.63e-39  285_[1(4.32e-42)]_91
+Rosalind_1511                    9.70e-40  19_[1(2.16e-42)]_59_[1(6.51e-05)]_\
+    337
+Rosalind_9664                    8.84e-40  274_[1(2.16e-42)]_96_[1(5.48e-05)]_\
+    5
+Rosalind_4832                    8.67e-40  45_[1(2.16e-42)]_355
+Rosalind_2752                    9.88e-40  122_[1(2.16e-42)]_334
+Rosalind_0401                    8.62e-40  126_[1(2.16e-42)]_272
+Rosalind_4356                    8.23e-40  305_[1(2.16e-42)]_75
+Rosalind_3214                    9.55e-40  284_[1(2.16e-42)]_157
+Rosalind_8871                    9.40e-40  117_[1(2.16e-42)]_317
+Rosalind_6882                    1.64e-39  97_[1(4.32e-42)]_282
+Rosalind_2493                    8.10e-40  149_[1(2.16e-42)]_225
+Rosalind_3931                    9.31e-40  406_[1(2.16e-42)]_24
+Rosalind_6274                    1.66e-39  64_[1(4.32e-42)]_320
+Rosalind_4412                    9.88e-40  379_[1(2.16e-42)]_77
+Rosalind_2098                    8.10e-40  47_[1(2.16e-42)]_327
+Rosalind_4898                    9.29e-40  276_[1(2.16e-42)]_153
+Rosalind_7631                    1.84e-39  319_[1(4.32e-42)]_107
+Rosalind_7286                    1.79e-39  265_[1(4.32e-42)]_149
+Rosalind_5564                    1.65e-39  54_[1(4.32e-42)]_327
+Rosalind_6926                    1.96e-39  389_[1(4.32e-42)]_65
+Rosalind_1982                    9.64e-40  40_[1(2.16e-42)]_405
+Rosalind_3218                    1.91e-39  124_[1(4.32e-42)]_318
+Rosalind_3600                    9.38e-40  413_[1(2.16e-42)]_20
+Rosalind_7851                    1.69e-39  226_[1(4.32e-42)]_165
+Rosalind_4371                    1.87e-39  115_[1(4.32e-42)]_318
+Rosalind_2880                    1.82e-39  126_[1(4.32e-42)]_294
+Rosalind_9815                    8.26e-40  320_[1(2.16e-42)]_61
+Rosalind_0951                    8.32e-40  147_[1(2.16e-42)]_237
+Rosalind_1763                    1.01e-39  449_[1(2.16e-42)]_16
+Rosalind_3667                    8.19e-40  347_[1(2.16e-42)]_31
+Rosalind_5194                    9.55e-40  439_[1(2.16e-42)]_2
+Rosalind_5096                    1.84e-39  84_[1(4.32e-42)]_340
+Rosalind_0753                    8.45e-40  244_[1(2.16e-42)]_146
+Rosalind_2417                    1.89e-39  346_[1(4.32e-42)]_91
+Rosalind_7949                    1.96e-39  388_[1(4.32e-42)]_65
+Rosalind_8858                    1.69e-39  2_[1(4.32e-42)]_388
+Rosalind_3909                    8.49e-40  47_[1(2.16e-42)]_345
+Rosalind_7113                    9.77e-40  47_[1(2.16e-42)]_404
+Rosalind_7182                    1.70e-39  345_[1(4.32e-42)]_48
+Rosalind_6815                    9.81e-40  252_[1(2.16e-42)]_201
+Rosalind_3351                    9.29e-40  44_[1(2.16e-42)]_385
+Rosalind_0242                    8.23e-40  322_[1(2.16e-42)]_58
+Rosalind_4427                    8.54e-40  272_[1(2.16e-42)]_122
+Rosalind_6260                    9.29e-40  337_[1(2.16e-42)]_92
+Rosalind_2155                    1.77e-39  74_[1(4.32e-42)]_335
+Rosalind_2762                    8.82e-40  200_[1(2.16e-42)]_207
+Rosalind_3230                    9.29e-40  378_[1(2.16e-42)]_51
+Rosalind_9823                    1.65e-39  25_[1(4.32e-42)]_355
+Rosalind_9800                    8.58e-40  180_[1(2.16e-42)]_216
+Rosalind_3858                    1.90e-39  367_[1(4.32e-42)]_72
+Rosalind_6451                    1.91e-39  26_[1(4.32e-42)]_415
+Rosalind_0910                    9.53e-40  149_[1(2.16e-42)]_291
+Rosalind_9147                    1.67e-39  100_[1(4.32e-42)]_285
+Rosalind_7107                    1.81e-39  123_[1(4.32e-42)]_296
+Rosalind_4459                    8.82e-40  97_[1(2.16e-42)]_310
+Rosalind_9569                    1.67e-39  265_[1(4.32e-42)]_121
+Rosalind_0448                    1.87e-39  210_[1(4.32e-42)]_222
+Rosalind_7075                    9.51e-40  206_[1(2.16e-42)]_233
+Rosalind_5517                    9.12e-40  211_[1(2.16e-42)]_210
+Rosalind_0846                    9.16e-40  363_[1(2.16e-42)]_60
+Rosalind_5397                    8.77e-40  188_[1(2.16e-42)]_217
+Rosalind_4594                    8.49e-40  350_[1(2.16e-42)]_42
+Rosalind_1922                    9.14e-40  373_[1(2.16e-42)]_49
+Rosalind_4431                    2.02e-39  172_[1(4.32e-42)]_294
+Rosalind_9685                    9.16e-40  104_[1(2.16e-42)]_319
+Rosalind_8459                    9.81e-40  28_[1(2.16e-42)]_425
+Rosalind_0461                    1.61e-39  149_[1(4.32e-42)]_224
+Rosalind_2915                    1.71e-39  6_[1(4.32e-42)]_388
+Rosalind_6565                    9.29e-40  38_[1(2.16e-42)]_391
+Rosalind_3170                    8.45e-40  306_[1(2.16e-42)]_84
+Rosalind_7560                    8.23e-40  130_[1(2.16e-42)]_250
+Rosalind_9573                    2.00e-39  401_[1(4.32e-42)]_62
+Rosalind_8714                    9.55e-40  223_[1(2.16e-42)]_218
+Rosalind_4671                    8.64e-40  5_[1(2.16e-42)]_394
+Rosalind_4788                    9.57e-40  296_[1(2.16e-42)]_146
+Rosalind_3093                    1.89e-39  334_[1(4.32e-42)]_102
+Rosalind_6236                    1.00e-39  147_[1(2.16e-42)]_316
+Rosalind_1970                    9.62e-40  317_[1(2.16e-42)]_127
+Rosalind_5122                    9.96e-40  1_[1(3.27e-05)]_396_[1(2.16e-42)]_\
+    30
+Rosalind_1153                    9.12e-40  129_[1(2.16e-42)]_292
+Rosalind_6387                    9.94e-40  130_[1(2.16e-42)]_329
+Rosalind_0599                    8.71e-40  191_[1(2.16e-42)]_211
+Rosalind_1169                    1.93e-39  174_[1(4.32e-42)]_272
+Rosalind_6198                    8.77e-40  115_[1(2.16e-42)]_290
+Rosalind_2003                    9.16e-40  328_[1(2.16e-42)]_95
+Rosalind_2841                    2.02e-39  395_[1(4.32e-42)]_71
+--------------------------------------------------------------------------------
+
+********************************************************************************
+
+
+********************************************************************************
+Stopped because nmotifs = 1 reached.
+********************************************************************************
+
+CPU: sten-0-4.local
+
+********************************************************************************
