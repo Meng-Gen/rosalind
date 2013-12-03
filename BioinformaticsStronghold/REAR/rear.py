@@ -70,7 +70,7 @@ def get_reversal_permutation(permutation, r):
 def breakpoint_reversal_distance(permutation):
     n = len(permutation)
     distance = 0
-    #print(permutation, '<= BEGIN')
+    print(permutation, '<= BEGIN')
     while num_breakpoints(permutation) > 0:
         if has_decreasing_strip(permutation):
             permutation = get_min_reversal_permutation(permutation)
@@ -78,7 +78,7 @@ def breakpoint_reversal_distance(permutation):
             #print('''Could not found decreasing strip''')
             #flip_increasing_strip(permutation)
             permutation = get_min_reversal_permutation(permutation)
-        #print(permutation)
+        print(permutation)
         distance += 1
     return distance
     
