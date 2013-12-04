@@ -13,7 +13,6 @@ def matrix_multiply(A, B):
         for j in range(B_col_dim):
             for k in range(A_col_dim):
                 C[i][j] += A[i][k] * B[k][j]
-    #print(C)
     return C
     
 class WrightFisherModel():
@@ -27,14 +26,9 @@ class WrightFisherModel():
     def build(self, generation):
         self.__build_theta(self.N, self.p, self.q)
         self.__build_T(self.N)
-        #print(self.N) 
-        #print('init =>', self.theta)
-        #print(self.T)
         curr_theta = self.theta
-        for g in range(generation):
+        for g in range(generation - 1):
             curr_theta = matrix_multiply(self.T, curr_theta)
-            #print(sum(_[0] for _ in curr_theta))
-            #print('curr =>', curr_theta)
         return curr_theta
         
     def __build_theta(self, N, p, q):
@@ -43,19 +37,17 @@ class WrightFisherModel():
     def __build_T(self, N):
         for i in range(2*N + 1):
             for j in range(2*N + 1):
-                self.T[i][j] = C(2*N, j) * (i/(2*N))**j * (1-i/(2*N))**(2*N-j)
+                self.T[j][i] = C(2*N, j) * (i/(2*N))**j * (1-i/(2*N))**(2*N-j)
     
 def get_final_prob(theta, k):
     theta_dim = len(theta)
     sum = 0.0    
     for i in range(theta_dim - k):    
         sum += theta[i][0]
-        #print(sum, theta[i][0])
     return sum
     
 def main():
     N, m, g, k = map(int, sys.stdin.readline().strip().split())
-    #print(N, m, g, k)
     model = WrightFisherModel(N, m)
     theta = model.build(g)
     print(get_final_prob(theta, k))
