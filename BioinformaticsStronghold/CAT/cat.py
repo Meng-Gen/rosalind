@@ -36,7 +36,6 @@ class CatalanNumberFactory():
                 rest_rna_pieces = [rna[1:i], rna[i+1:]]
                 pieces_numbers = [self.__get_catalan_number(_) for _ in rest_rna_pieces]
                 sum += pieces_numbers[0] * pieces_numbers[1]        
-        sum %= 1000000    
         self.memorized_table[rna] = sum
         self.memorized_table[rna[::-1]] = sum         
         return sum
@@ -63,7 +62,7 @@ def main():
     rna = fasta_records[0][1]
     factory = CatalanNumberFactory()
     num = factory.create(rna)
-    print(num)
+    print(num % 1000000)
     
 if __name__ == '__main__':
     sys.exit(main())
