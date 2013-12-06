@@ -55,45 +55,18 @@ def get_fasta_records(lines):
 def edit_distance(s, t):
     m, n = len(s), len(t)
     d = [[0 for _ in range(n+1)] for _ in range(m+1)] 
-    a = [['?' for _ in range(n+1)] for _ in range(m+1)] # Debug for alignment
     
     for i in range(m):
         d[i+1][0] = -5 * (i+1)
     for j in range(n):
         d[0][j+1] = -5 * (j+1)
-    a[0][0] = '+' # Debug for alignment
         
     for j in range(n):
         for i in range(m):
             if s[i] == t[j]:
                 d[i+1][j+1] = d[i][j] + get_blosum62(s[i], t[j])
-                a[i+1][j+1] = '+' # Debug for alignment
             else:
                 d[i+1][j+1] = max(d[i+1][j] - 5, d[i][j+1] - 5, d[i][j] + get_blosum62(s[i], t[j]))
-                # Debug for alignment
-                if d[i+1][j+1] == d[i][j] + + get_blosum62(s[i], t[j]):
-                    a[i+1][j+1] = '#'
-                if d[i+1][j+1] == d[i][j+1] - 5:
-                    a[i+1][j+1] = '|'
-                if d[i+1][j+1] == d[i+1][j] - 5:
-                    a[i+1][j+1] = '-'
-    
-    # Debug for alignment
-    s_reversed_alignment, t_reversed_alignment = '', ''
-    i, j = m, n
-    while i != 0 and j != 0:
-        if a[i][j] == '-':
-            s_reversed_alignment += '-'
-            t_reversed_alignment += t[j-1]
-            i, j = i, j-1
-        elif a[i][j] == '|':
-            s_reversed_alignment += s[i-1]
-            t_reversed_alignment += '-'
-            i, j = i-1, j
-        elif a[i][j] == '#' or a[i][j] == '+':
-            s_reversed_alignment += s[i-1]
-            t_reversed_alignment += t[j-1]
-            i, j = i-1, j-1
     return d[m][n]
     
 def main():
