@@ -1,8 +1,5 @@
 import sys
 
-def is_adjacent(s, t, overlap_length):
-    return s != t and s[-overlap_length:] == t[:overlap_length]
-
 def dna_rc(dna):
     rc = dna.replace("A", "a").replace("T", "A").replace("a", "T")
     rc = rc.replace("C", "c").replace("G", "C").replace("c", "G")
