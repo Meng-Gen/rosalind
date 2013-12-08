@@ -39,9 +39,8 @@ def equals_to_cycles(graph, expected_count):
     if not has_cycles(graph):
         return False
     actual_count = 0
-    all_nodes = [_ for _ in graph]
     visited_nodes = set()
-    for node in all_nodes:
+    for node in graph:
         if node in visited_nodes:
             continue
         curr_node = node
