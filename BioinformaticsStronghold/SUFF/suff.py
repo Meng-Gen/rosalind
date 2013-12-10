@@ -13,7 +13,6 @@ class SuffixTree():
     def __build(self, string):
         for i in range(len(string)):
             self.__insert(string[i:])
-
         
     def __insert(self, suffix):
         curr_node = self.suffix_tree
