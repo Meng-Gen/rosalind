@@ -2,43 +2,59 @@ import sys
 
 class SuffixTree():
     def __init__(self, string):
-        self.suffix_tree = ['', []]
-        self.edges = []
+        self.suffix_tree = {}
         self.__build(string)
+        self.edges = []
         
     def get_edges(self):
-        self.__get_edges_recursively(self.suffix_tree, '')
-        return [_ for _ in self.edges if _ != '']
+        self.__build_edges_recursively(self.suffix_tree)
+        return self.edges
         
     def __build(self, string):
-        for i in range(len(string)):
+        n = len(string)
+        for i in range(n):
             self.__insert(string[i:])
         
     def __insert(self, suffix):
         curr_node = self.suffix_tree
-        for child in suffix:
-            found_child = False
-            for next_node in curr_node[1]:
-                if next_node[0] == child:
-                    found_child = True
-                    break
-            if not found_child:
-                curr_node[1].append([child, []])
-            for next_node in curr_node[1]:
-                if next_node[0] == child:
-                    curr_node = next_node
-                    break
+        curr_suffix = suffix
+        while True:
+            matched_node, matched_lcp = self.__search_child_node(curr_suffix, curr_node)
+            if not matched_lcp:
+                curr_node[curr_suffix] = {}
+                break
+            n = len(matched_lcp)
+            if n != len(matched_node):
+                matched_node_children = curr_node[matched_node]            
+                curr_node[matched_lcp] = {
+                    curr_suffix[n:] : {}, 
+                    matched_node[n:] : matched_node_children,
+                }
+                curr_node.pop(matched_node)
+                break
+            curr_node = curr_node[matched_node]
+            curr_suffix = curr_suffix[n:]
+            
+    def __search_child_node(self, string, parent_node):
+        for child_node in parent_node:
+            lcp = self.__get_longest_common_prefix(string, child_node)
+            if lcp:
+                return child_node, lcp
+        return None, None
+            
+    def __get_longest_common_prefix(self, x, y):
+        n = min(len(x), len(y))
+        longest_common_pos = n
+        for i in range(n):
+            if x[i] != y[i]:
+                longest_common_pos = i
+                break
+        return x[:longest_common_pos]
     
-    def __get_edges_recursively(self, curr_node, queued_substring):
-        queued_substring += curr_node[0]
-        if len(curr_node[1]) == 0:
-            return self.edges.append(queued_substring)
-        elif len(curr_node[1]) == 1:
-            return self.__get_edges_recursively(curr_node[1][0], queued_substring)
-        self.edges.append(queued_substring)
-        queued_substring = ''
-        for next_node in curr_node[1]:
-            self.__get_edges_recursively(next_node, queued_substring)
+    def __build_edges_recursively(self, parent_node): 
+        for child_node in parent_node:
+            self.edges.append(child_node)
+            self.__build_edges_recursively(parent_node[child_node])
     
 def main():
     dna_string = sys.stdin.readline().strip()
