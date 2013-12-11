@@ -4,9 +4,10 @@ class SuffixTree():
     def __init__(self, string):
         self.suffix_tree = {}
         self.__build(string)
-        self.edges = []
+        self.edges = None
         
     def get_edges(self):
+        self.edges = []
         self.__build_edges_recursively(self.suffix_tree)
         return self.edges
         
