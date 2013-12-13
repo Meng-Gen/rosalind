@@ -1,0 +1,8 @@
+Step 1:
+    Download tool: http://hannonlab.cshl.edu/fastx_toolkit/download.html
+
+Step 2: 
+    Command: fastq_quality_filter -q 20 -p 90 -i fastq.in -o fastq.out -Q 33
+                                                                       ^^^^^
+Step 3:
+    Count FASTQ records manually.
