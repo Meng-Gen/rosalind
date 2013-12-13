@@ -1,0 +1,43 @@
+########################################
+# Program: water
+# Rundate: Fri 13 Dec 2013 05:20:51
+# Commandline: water
+#    -auto
+#    -stdout
+#    -asequence emboss_water-I20131213-052050-0915-73704588-oy.asequence
+#    -bsequence emboss_water-I20131213-052050-0915-73704588-oy.bsequence
+#    -datafile EBLOSUM62
+#    -gapopen 10.0
+#    -gapextend 1.0
+#    -aformat3 pair
+#    -sprotein1
+#    -sprotein2
+# Align_format: pair
+# Report_file: stdout
+########################################
+
+#=======================================
+#
+# Aligned_sequences: 2
+# 1: EMBOSS_001
+# 2: EMBOSS_001
+# Matrix: EBLOSUM62
+# Gap_penalty: 10.0
+# Extend_penalty: 1.0
+#
+# Length: 14
+# Identity:       5/14 (35.7%)
+# Similarity:     7/14 (50.0%)
+# Gaps:           3/14 (21.4%)
+# Score: 21.0
+# 
+#
+#=======================================
+
+EMBOSS_001        13 KRRHGFRARMSTRW     26
+                     |.||.|   :..:|
+EMBOSS_001       160 KIRHDF---LEKQW    170
+
+
+#---------------------------------------
+#---------------------------------------
