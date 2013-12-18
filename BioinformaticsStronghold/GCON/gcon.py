@@ -59,8 +59,8 @@ class Blosum62ScoringMatrix():
 class GlobalAlignment():
     def __init__(self, h, g):
         self.score_matrix = Blosum62ScoringMatrix()
-        self.h = h # penalty for opening a gap
-        self.g = g # penalty for extending the gap 
+        self.h = h # w(k) = g + hk, if k >= 1
+        self.g = g #      = 0     , otherwise
         
     def edit_distance(self, s, t):
         m, n = len(s), len(t)
@@ -79,7 +79,7 @@ class GlobalAlignment():
                 M[i+1][j+1] = max(M[i][j] + score, I[i][j] + score, J[i][j] + score)
                 I[i+1][j+1] = max(M[i][j+1] + self.h + self.g, I[i][j+1] + self.g)
                 J[i+1][j+1] = max(M[i+1][j] + self.h + self.g, J[i+1][j] + self.g)
-        return M[m][n]
+        return max(M[m][n], I[m][n], J[m][n])
     
 def main():
     fasta_records = read_fasta_records()
