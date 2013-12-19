@@ -32,7 +32,7 @@ class OverlapAlignment():
                 score = self.get_score(s[i], t[j])
                 M[i+1][j+1] = max(M[i+1][j] + self.g, M[i][j+1] + self.g, M[i][j] + score)
         # get best score
-        best_score_so_far = M[0][n]
+        best_score_so_far = M[m][n]
         best_pos_so_far = None
         for j in range(n):
             if M[m][j+1] > best_score_so_far:
