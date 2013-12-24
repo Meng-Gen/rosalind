@@ -1,4 +1,6 @@
+import ast
 import itertools
+import os.path
 import sys
 
 def read_permutation_pairs():
@@ -26,69 +28,79 @@ def normalize(pair):
                 break
     return r
 
-# Reference Book: 
-#   AN INTRODUCTION TO BIOINFORMATICS ALGORITHMS, NEIL C. JONES AND PAVEL A. PEVZNER 
-def num_breakpoints(permutation):
-    num = 0
-    prev_c = 0
-    for c in permutation:
-        if c != prev_c + 1 and c != prev_c - 1:
-            num += 1
-        prev_c = c
-    if prev_c != len(permutation):
-        num += 1
-    return num
-
-def has_decreasing_strip(permutation):
-    return True
-
-def get_min_reversal_permutation(permutation):
-    n = len(permutation)
-    min_num_breakpoints = n + 1
-    min_permutation = None
-    for r in itertools.combinations(range(n), 2):
-        next = get_reversal_permutation(permutation, r)
-        next_num_breakpoints = num_breakpoints(next)
-        if min_num_breakpoints > next_num_breakpoints:
-            min_num_breakpoints = next_num_breakpoints
-            min_permutation = next
-    return min_permutation
-
-def flip_increasing_strip(permutation):
-    strip = []
-    for i in range(1, len(permutation)):
-        if permutation[i] + 1 == permutation[i-1]:
-            if not strip:
-                strip.append(permutation[i-1])
-            strip.append(permutation[i])
-        else:
-            break
+class ReversalDistanceQuery():
+    def __init__(self, n):
+        self.n = n
+        self.distance_map_data_file = 'DistanceMapData[%d].txt'
+        self.distance_map = {}
+        self.__init_distance_map()
+        self.__precalculate()
+        
+    def __write_data_file(self, distance):
+        file = self.distance_map_data_file % distance
+        with open(file, 'w') as file_handle:
+            file_handle.write(str(self.distance_map[distance]))
+        
+    def __read_data_file(self, distance):
+        file = self.distance_map_data_file % distance
+        with open(file, 'r') as file_handle:
+            self.distance_map[distance] = ast.literal_eval(file_handle.read())
+        
+    def __has_data_file(self, distance):
+        file = self.distance_map_data_file % distance
+        return os.path.isfile(file)
+        
+    def __precalculate(self):
+        for i in range(2, self.n):
+            self.__update(i)
+            print(len(self.distance_map[i]))
     
-def get_reversal_permutation(permutation, r):
-    return permutation[:r[0]] + permutation[r[0]:r[1]+1][::-1] + permutation[r[1]+1:]
+    def __init_distance_map(self):
+        for i in range(self.n):
+            self.distance_map[i] = set()
+        initial_permutation = [_ for _ in range(1, self.n+1)]
+        self.__insert(initial_permutation, 0)
+        for reversal in self.__reversal_generator(initial_permutation):
+            self.__insert(reversal, 1)
+    
+    def __update(self, distance):
+        if self.__has_data_file(distance):
+            self.__read_data_file(distance)
+            print('Data file existed, skip for distance =', distance)
+            return
+        assert(distance > 1)
+        for permutation in self.distance_map[distance-1]:
+            for reversal in self.__reversal_generator(self.__unhash(permutation)):
+                if self.__contains(reversal, distance-2):
+                    continue
+                self.__insert(reversal, distance)
+        self.__write_data_file(distance)
+    
+    def __reversal_generator(self, x):
+        for i, j in itertools.combinations(range(self.n), 2):
+            yield x[:i] + x[i:j+1][::-1] + x[j+1:]
 
-def breakpoint_reversal_distance(permutation):
-    n = len(permutation)
-    distance = 0
-    print(permutation, '<= BEGIN')
-    while num_breakpoints(permutation) > 0:
-        if has_decreasing_strip(permutation):
-            permutation = get_min_reversal_permutation(permutation)
-        else:
-            #print('''Could not found decreasing strip''')
-            #flip_increasing_strip(permutation)
-            permutation = get_min_reversal_permutation(permutation)
-        print(permutation)
-        distance += 1
-    return distance
+    def __contains(self, permutation, distance):
+        return self.__hash(permutation) in self.distance_map[distance]
+            
+    def __insert(self, permutation, distance):
+        self.distance_map[distance].add(self.__hash(permutation))
+    
+    def __hash(self, permutation):
+        return '|'.join(map(str, permutation))
+    
+    def __unhash(self, hashed):
+        return hashed.split('|')
     
 def main():
-    pairs = read_permutation_pairs()
-    normalized_permutations = [normalize(pair) for pair in pairs]
-    distances = []
-    for p in normalized_permutations:
-        distances.append(breakpoint_reversal_distance(p))
-    print(' '.join(map(str, distances)))
+    query = ReversalDistanceQuery(10)
+    
+    #pairs = read_permutation_pairs()
+    #normalized_permutations = [normalize(pair) for pair in pairs]
+    #distances = []
+    #for p in normalized_permutations:
+    #    distances.append(breakpoint_reversal_distance(p))
+    #print(' '.join(map(str, distances)))
     
 if __name__ == '__main__':
     sys.exit(main())
