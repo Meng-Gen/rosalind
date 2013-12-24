@@ -10,11 +10,20 @@ class ApproximateMatchingProblem():
     
     def get_most_frequent_motifs(self):
         self.approximating_motifs = {}
+        genome_rc = self.__get_reverse_complement(self.genome)  
         m = len(self.genome) - self.k + 1
         for i in range(m):
             piece = self.genome[i:i+self.k]
             self.__update_approximating_motifs(piece)
+            piece = genome_rc[i:i+self.k]
+            self.__update_approximating_motifs(piece)
         return self.__get_most_frequent_motifs_impl()
+    
+    def __get_reverse_complement(self, genome):
+        complement = genome[::-1]
+        complement = complement.replace("A", "a").replace("T", "A").replace("a", "T")
+        complement = complement.replace("C", "c").replace("G", "C").replace("c", "G")
+        return complement
     
     def __update_approximating_motifs(self, piece):
         for pattern in itertools.product([False, True], repeat=self.k):
