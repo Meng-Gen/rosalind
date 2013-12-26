@@ -12,7 +12,6 @@ class Graph():
         self.discovery_time = None
         self.finishing_time = None
         self.time = None
-        self.has_cycle = None
         self.__build_graph()
     
     def num_strongly_connected_components(self):
