@@ -34,7 +34,7 @@ class Graph():
         self.components_graph = None 
         # SCCs
         self.components = None
-        # Topological sort of SCC graph
+        # Topological reversed sort of SCC graph
         self.sorted_nodes = None 
         # Depth first search stuff
         self.visited_nodes = None
@@ -73,7 +73,6 @@ class Graph():
         for u in range(n):
             if u not in self.visited_nodes:
                 self.depth_first_search_topological_sort(u)
-        self.sorted_nodes = self.sorted_nodes[::-1]
     
     def get_satisfying_assignment(self):
         n = self.edge_list[0][0]
