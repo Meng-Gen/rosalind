@@ -8,34 +8,23 @@ def read_dataset():
 
 def has_two_sum(unsorted_array, t):
     n = len(unsorted_array)
-    unsorted_array_map = {}
+    unsorted_dict = {}
     for i in range(n):
-        x = unsorted_array[i] 
-        if x not in unsorted_array_map:
-            unsorted_array_map[x] = set()
-        unsorted_array_map[x].add(i)
-    A = list(unsorted_array)
-    A.sort()
-    j, k = 0, len(A)-1
+        unsorted_dict[i] = unsorted_array[i]
+    sorted_dict = sorted(unsorted_dict.items(), key=lambda x: x[1])
+    j, k = 0, n-1
     while j < k:
-        sum = A[j] + A[k]
+        sum = sorted_dict[j][1] + sorted_dict[k][1]
         if sum == t:
-            p, q = None, None
-            if A[j] * 2 == sum:
-                p, q = list(unsorted_array_map[A[j]])[:2]
-            else:
-                p = list(unsorted_array_map[A[j]])[0]
-                q = list(unsorted_array_map[A[k]])[0]
-            if p < q:
-                return [p+1, q+1] # 1-based
-            else:
-                return [q+1, p+1] # 1-based
+            index = [sorted_dict[j][0] + 1, sorted_dict[k][0] + 1] # 1-based
+            index.sort()
+            return index
         elif sum < t:
             j += 1
         else:
             k -= 1
     return [-1]
-    
+
 def main():
     k, n, array_list = read_dataset()
     for array in array_list:
