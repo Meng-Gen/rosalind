@@ -34,8 +34,8 @@ class Graph():
     def get_hamiltonian_path(self):
         self.topological_sort()
         n = self.edge_list[0][0]
-        for u in range(1, n):
-            if u+1 not in self.graph_impl[u]:
+        for i in range(n - 1):
+            if self.sorted_nodes[i+1] not in self.graph_impl[self.sorted_nodes[i]]:
                 return None
         return self.sorted_nodes
     
