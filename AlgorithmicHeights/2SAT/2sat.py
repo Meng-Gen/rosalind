@@ -96,10 +96,14 @@ class Graph():
         n = self.edge_list[0][0]
         for u in range(1, n+1):
             self.discovery_time[u] = None
+            self.discovery_time[-u] = None
             self.finishing_time[u] = None
+            self.finishing_time[-u] = None
         for u in range(1, n+1):
             if u not in self.visited_nodes:
                 self.depth_first_search_visit(u)
+            if -u not in self.visited_nodes:
+                self.depth_first_search_visit(-u)
    
     def depth_first_search_visit(self, u):
         self.time += 1
