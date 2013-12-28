@@ -1,0 +1,8 @@
+>Rosalind_3204
+AAGCGATCAG
+>Rosalind_9909
+GGGAGATC
+>Rosalind_7717
+TACGGCCAC
+>Rosalind_4612
+CACCTTAG
